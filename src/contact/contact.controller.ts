@@ -11,8 +11,10 @@ export class ContactController {
   async contact(@Body() contactDto: ContactDto) {
     await this.contactService.verifyRecaptcha(contactDto.token);
 
-    if (process.env.NODE_ENV !== Envs.PRODUCTION) return;
+    if (process.env.NODE_ENV === Envs.PRODUCTION) {
+      await this.contactService.sendAWSEmail(contactDto);
+    }
 
-    // TODO: Send the email
+    return;
   }
 }
