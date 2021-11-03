@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { Msgs } from './utils/constants';
 
 describe('AppController', () => {
   let appController: AppController;
@@ -15,8 +16,8 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+    it('should return index greeting', () => {
+      expect(appController.index().message).toBe(Msgs.INDEX_GREETING);
     });
   });
 });

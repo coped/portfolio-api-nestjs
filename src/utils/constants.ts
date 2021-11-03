@@ -26,6 +26,10 @@ export enum ErrorMsgs {
   AWS_SERVICE_FAIL = 'An error occurred while attempting to contact AWS services',
 }
 
+export enum Msgs {
+  INDEX_GREETING = 'Welcome to the coped.dev API.',
+}
+
 export enum Envs {
   PRODUCTION = 'production',
   DEVELOPMENT = 'developement',

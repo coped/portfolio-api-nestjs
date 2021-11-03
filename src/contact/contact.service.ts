@@ -7,10 +7,10 @@ import {
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import axios from 'axios';
-import { ErrorMsgs, StatusTexts, Urls } from 'src/utils/constants';
+import { ErrorMsgs, StatusTexts, Urls } from '../utils/constants';
 import { Recaptcha } from './interface/recaptcha.interface';
 import { ContactDto } from './dto/contact.dto';
-import { sesClient } from 'src/libs/sesClient';
+import { sesClient } from '../libs/sesClient';
 
 @Injectable()
 export class ContactService {

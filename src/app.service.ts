@@ -1,10 +1,11 @@
 import { Injectable } from '@nestjs/common';
+import { Msgs } from './utils/constants';
 
 @Injectable()
 export class AppService {
   greeting() {
     return {
-      message: 'Welcome to the coped.dev API.',
+      message: Msgs.INDEX_GREETING,
     };
   }
 }
