@@ -1,7 +1,7 @@
 import { Controller, Post, Body } from '@nestjs/common';
-
 import { ContactService } from './contact.service';
 import { ContactDto } from './dto/contact.dto';
+import { Envs } from 'src/utils/constants';
 
 @Controller('contact')
 export class ContactController {
@@ -11,6 +11,8 @@ export class ContactController {
   async contact(@Body() contactDto: ContactDto) {
     await this.contactService.verifyRecaptcha(contactDto.token);
 
-    return { success: true };
+    if (process.env.NODE_ENV !== Envs.PRODUCTION) return;
+
+    // TODO: Send the email
   }
 }

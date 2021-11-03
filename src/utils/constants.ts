@@ -25,3 +25,8 @@ export enum ErrorMsgs {
   RECAPTCHA_RESPONSE_FAIL = 'reCAPTCHA returned an unsuccessful API response',
   AWS_SERVICE_FAIL = 'An error occurred while attempting to contact AWS services',
 }
+
+export enum Envs {
+  PRODUCTION = 'production',
+  DEVELOPMENT = 'developement',
+}

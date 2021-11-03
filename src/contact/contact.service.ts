@@ -6,16 +6,17 @@ import {
 } from '@nestjs/common';
 import { ErrorMsgs, StatusTexts, Urls } from 'src/utils/constants';
 import { Recaptcha } from './interface/recaptcha.interface';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class ContactService {
-  mockContactMessage() {
-    return 'Contact endpoint';
-  }
+  constructor(private readonly configService: ConfigService) {}
 
   async verifyRecaptcha(responseToken: string): Promise<void> {
+    const secretKey =
+      this.configService.get<string>('RECAPTCHA_SECRET_KEY') ?? '';
     const body = new URLSearchParams({
-      secret: process.env.RECAPTCHA_SECRET_KEY ?? '',
+      secret: secretKey,
       response: responseToken,
     });
 
